@@ -34,10 +34,5 @@ module.exports = StyleSheet.create({
       height: '85%',
       width: '100%',
       paddingLeft: '5%'
-    },
-    backgroundImage: {
-      height: '100%',
-      width: '100%',
-      resizeMode: 'contain'
     }
 });

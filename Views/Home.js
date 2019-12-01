@@ -1,18 +1,19 @@
 import React, { Component } from "react";
-import { View } from "react-native";
-
-import CustomTabNavigator from "../components/CustomTabNavigator";
-import CustomHeader from "../components/CustomHeader";
+import { Image, StyleSheet } from "react-native";
 
 export default class Home extends Component {
-  static router = CustomTabNavigator.router;
-
   render() {
     return (
-      <View style={{ flex: 1 }}>
-        <CustomHeader navigation={this.props.navigation} />
-        <CustomTabNavigator navigation={this.props.navigation} />
-      </View>
+      <Image source={require('../assets/images/loading.gif')} style={styles.backgroundImage}></Image>
     );
   }
 }
+
+const styles = StyleSheet.create({
+  backgroundImage: {
+    height: '100%',
+    width: '100%',
+    resizeMode: 'contain'
+  }
+})
+

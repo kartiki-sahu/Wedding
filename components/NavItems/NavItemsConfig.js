@@ -1,12 +1,12 @@
 import { AntDesign, MaterialCommunityIcons } from '@expo/vector-icons';
 
-module.export = [{
+export default [{
     icon:"home",
     label:"Home",
     tagName:MaterialCommunityIcons
 }, {
     icon:"account",
-    label:"My Account",
+    label:"Account",
     tagName:MaterialCommunityIcons
 }, {
     icon:"team",
@@ -14,7 +14,7 @@ module.export = [{
     tagName:AntDesign
 }, {
     icon:"picture",
-    label:"Images",
+    label:"Album",
     tagName:AntDesign
 }, {
     icon:"comment-text-outline",

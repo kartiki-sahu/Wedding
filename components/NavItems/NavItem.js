@@ -27,8 +27,8 @@ import {
   const styles = StyleSheet.create({
     navItems:{
         padding: "5%",
-        flexDirection:"row",
-        backgroundColor: Color.primary
+        flexDirection:"row"
+        // backgroundColor: Color.primary
     },
     navItemsText: {
         color: Color.fontColor,

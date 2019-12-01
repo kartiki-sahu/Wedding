@@ -8,38 +8,12 @@ import {
     TouchableHighlight
 } from 'react-native';
 
-import { AntDesign, MaterialCommunityIcons } from '@expo/vector-icons';
-import NavItems from '../NavItems/NavItem'
-// import NavItemDetails from '../NavItems/NavItemsConfig'
+import { MaterialCommunityIcons } from '@expo/vector-icons';
+import NavItem from '../NavItems/NavItem'
+import NavItemDetail from '../NavItems/NavItemsConfig'
 import Color from '../../contants/Color';
 
-export default ControlPanel = () => {
-    const changeView = label => {
-        console.log("label : ", label)
-    }
-
-    const navItems = [{
-        icon:"home",
-        label:"Home",
-        tagName:MaterialCommunityIcons
-    }, {
-        icon:"account",
-        label:"My Account",
-        tagName:MaterialCommunityIcons
-    }, {
-        icon:"team",
-        label:"Ceremonies",
-        tagName:AntDesign
-    }, {
-        icon:"picture",
-        label:"Images",
-        tagName:AntDesign
-    }, {
-        icon:"comment-text-outline",
-        label:"Comments",
-        tagName:MaterialCommunityIcons
-    }];
-
+export default ControlPanel = props => {
     return (
         <View style={styles.controlPanel}>
             {/* <TouchableHighlight onPress={() => { this.props.closeDrawer() }} style={styles.back}>
@@ -47,17 +21,19 @@ export default ControlPanel = () => {
             </TouchableHighlight> */}
             <View>
                 <View style={styles.userProfile}>
-                    <MaterialCommunityIcons name="icon" size={60}/>
+                    <MaterialCommunityIcons name="account-circle" size={60}/>
                 </View>
                 {
-                    navItems.map((item)=>{
+                    NavItemDetail.map((item, index)=>{
                         return (
-                            <NavItems
+                            <NavItem
                                 tagName={item.tagName}
                                 icon={item.icon}
                                 label={item.label}
+                                key={item.icon + "-" + index}
                                 onNavItemClick={()=>{
-                                    changeView().bind(item.label)
+                                    console.log(item.label)
+                                    props.setCurrentScreen().bind(item.label)
                                 }} />
                         )
                     })
@@ -77,8 +53,8 @@ const styles = StyleSheet.create({
     userProfile: {
         paddingTop: 36,
         flexDirection:"row",
+        height:"25%",
         backgroundColor:Color.fontColor,
-        borderRadius: 150,
         borderColor:"#000000",
         borderWidth:1
     }
