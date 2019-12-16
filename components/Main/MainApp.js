@@ -20,12 +20,13 @@ const MainApp = () => {
   };
 
   const setCurrentScreen = screen => {
-    this.setActiveScreen(screen)
+    setActiveScreen(screen)
+    closeControlPanel();
   }
 
   console.log('activeScreen : ', activeScreen);
 
-  let content = <Home />
+  // let content = <activeScreen />
   switch (activeScreen) {
     case "Account":
       content = (
@@ -50,11 +51,16 @@ const MainApp = () => {
         <Comments />
       );
       break;
+    
+    default:
+      content = (
+        <Home />
+      )
   }
-
   const drawerStyles = {
-    drawer: { shadowColor: '#000000', shadowOpacity: 0.8, shadowRadius: 3 },
-    main: { paddingLeft: 3 },
+    drawer: {
+      width:"20px"
+    }
   }
   return (
     <Drawer
@@ -64,11 +70,11 @@ const MainApp = () => {
       tapToClose={true}
       openDrawerOffset={0.2} // 20% gap on the right side of drawer
       panCloseMask={0.2}
-      closedDrawerOffset={-3}
       styles={drawerStyles}
-      tweenHandler={(ratio) => ({
-        main: { opacity: (2 - ratio) / 2 }
-      })}
+      useInteractionManager={true}
+      closedDrawerOffset={-3}
+      tweenDuration={500}
+      elevation={3}
     >
       <View style={styles.screen}>
         <View style={{ ...styles.header, ...styles.layout }}>

@@ -32,8 +32,7 @@ export default ControlPanel = props => {
                                 label={item.label}
                                 key={item.icon + "-" + index}
                                 onNavItemClick={()=>{
-                                    console.log(item.label)
-                                    props.setCurrentScreen().bind(item.label)
+                                    props.setCurrentScreen(item.label)
                                 }} />
                         )
                     })
@@ -47,15 +46,15 @@ export default ControlPanel = props => {
 const styles = StyleSheet.create({
     controlPanel: {
         flex: 1,
-        backgroundColor: 'black',
-        opacity: 0.7,
+        backgroundColor: Color.drawerColor,
+        opacity:0.7
     },
     userProfile: {
         paddingTop: 36,
         flexDirection:"row",
         height:"25%",
         backgroundColor:Color.fontColor,
-        borderColor:"#000000",
-        borderWidth:1
+        borderBottomColor:"#000000",
+        borderBottomWidth:1
     }
 })

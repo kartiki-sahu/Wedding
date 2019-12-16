@@ -15,9 +15,9 @@ import {
   const NavItem = props =>{
       const Tag = props.tagName
     return (
-        <TouchableHighlight onPress={()=>{props.onNavItemClick}}>
+        <TouchableHighlight onPress={()=>{props.onNavItemClick()}}>
             <View style={styles.navItems}>
-                <Tag name={props.icon} style={{color:Color.fontColor}} size={30}/>
+                <Tag name={props.icon} style={{color:Color.navItemFontColor}} size={30}/>
                 <Text style={styles.navItemsText}>{props.label}</Text>
             </View>
         </TouchableHighlight>
@@ -27,11 +27,12 @@ import {
   const styles = StyleSheet.create({
     navItems:{
         padding: "5%",
-        flexDirection:"row"
+        flexDirection:"row",
+        fontWeight:"900"
         // backgroundColor: Color.primary
     },
     navItemsText: {
-        color: Color.fontColor,
+        color: Color.navItemFontColor,
         paddingLeft: 20
     }  
   })

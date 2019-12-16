@@ -18,8 +18,10 @@ export default class App extends React.Component {
       return (
         <View style={{ flex: 1 }}>
           <Image
-            source={require('./assets/images/loading.gif')}
+            source={require('./assets/images/starter.png')}
             onLoad={this._cacheResourcesAsync}
+            resizeMode="contain"
+            style={{height:"80%"}}
           />
         </View>
       );
@@ -31,14 +33,14 @@ export default class App extends React.Component {
   }
 
   _cacheSplashResourcesAsync = async () => {
-    const gif = require('./assets/images/loading.gif');
+    const gif = require('./assets/images/starter.png');
     return Asset.fromModule(gif).downloadAsync();
   };
 
   _cacheResourcesAsync = async () => {
     SplashScreen.hide();
     const images = [
-      require('./assets/images/loading.gif')
+      require('./assets/images/starter.png')
     ];
 
     const cacheImages = images.map(image => {

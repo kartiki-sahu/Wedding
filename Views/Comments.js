@@ -1,10 +1,10 @@
 import React, { Component } from "react";
-import { View } from "react-native";
+import { View, Text } from "react-native";
 
 export default class Album extends Component {
   render() {
     return (
-      <View style={{ flex: 1, backgroundColor: "red" }}>
+      <View style={{ flex: 1}}>
         <Text>Comments</Text>
       </View>
     );
